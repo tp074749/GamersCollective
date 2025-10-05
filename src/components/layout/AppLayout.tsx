@@ -8,7 +8,7 @@ export default function AppLayout() {
             <main className="main" style ={{ padding: "1rem" }}>
                 <Outlet />
             </main>
-            <footer className="footer">© 2024 GameStore. All rights reserved.</footer>
+            <footer className="footer">© 2025 GameStore. All rights reserved.</footer>
         </>
     );
 }
