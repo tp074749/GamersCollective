@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element: <AppLayout />,   // always wraps pages
     children: [
       { index: true, element: <Store /> },
-      { path: "game/:id", element: <GameDetail /> },
+      { path: "/:id", element: <GameDetail /> },
       { path: "categories", element: <Categories /> },
       { path: "recommendations", element: <Recommendations /> },
       { path: "about", element: <About /> },

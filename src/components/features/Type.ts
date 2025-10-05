@@ -8,5 +8,8 @@ export interface FeaturedItem {
   ctaLabel: string;
   ctaHref: string;
   tag?: string;
+  genre?: string;
+  developer?: string;
+  releaseDate?: string;
   price?: string; // ✅ Added for GameCarousel items
 }
