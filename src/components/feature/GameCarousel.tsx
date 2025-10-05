@@ -79,7 +79,7 @@ const GameCarousel: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
-
+  </div>
+);
+}
 export default GameCarousel;
