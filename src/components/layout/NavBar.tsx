@@ -1,22 +1,11 @@
 // Navbar.tsx
 import DropDownMenu, { type MenuItem } from "./Dropdown/HoverDropDownMenu";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { storeItems, categoriesItems, recommendationsItems } from "./NavLists";
 
-const storeItems: MenuItem[] = [
-  { label: "Featured",  href: "/" },
-  { label: "Wishlist",  href: "/wishlist" },
-  { label: "Stats",     href: "/stats" },
-];
 
-const categoriesItems: MenuItem[] = [
-  { label: "Souls Game", href: "/categories" },
-  { label: "Survival",   href: "/categories/survival" },
-];
 
-const recommendationsItems: MenuItem[] = [
-  { label: "All Games", href: "/recommendations" },
-  { label: "Installed", href: "/installed" },
-];
+
 
 // Tailwind styles (same as before)
 const ddMenu =
