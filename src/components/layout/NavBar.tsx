@@ -26,7 +26,7 @@ export default function Navbar() {
         (pathname === it.href || pathname.startsWith(it.href + "/"))
     );
 
-  // Compute button classes using the same active/normal scheme
+  // Compute button classes using the same active/normal scheme 
   const storeBtnCls = `${linkBase} ${
     isMenuActive(storeItems) ? linkActive : linkNormal
   }`;
@@ -42,12 +42,17 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
         {/* Brand */}
         <div className="text-xl font-extrabold tracking-tight">
+          <NavLink to="/">
           <span className="text-[#6C63FF]">Gamers</span>
           <span className="text-[#F8F9FA]">Collective</span>
+          </NavLink>
         </div>
 
         {/* Menus + links */}
         <nav className="flex items-center gap-3">
+          {/* Dropdown menus */}
+          {/* Each gets its own active logic and button classes */}
+          <NavLink to="/">
           <DropDownMenu
             label="Store"
             items={storeItems}
@@ -55,6 +60,7 @@ export default function Navbar() {
             menuClassName={ddMenu}
             itemClassName={ddItem}
           />
+          </NavLink>
           <DropDownMenu
             label="Categories"
             items={categoriesItems}
@@ -80,13 +86,12 @@ export default function Navbar() {
             About
           </NavLink>
 
-          <button
+          <NavLink
+            to="/login"
             className={`${linkBase} ${linkNormal}`}
-            onClick={() => navigate("/login")}
-            type="button"
           >
             Log in
-          </button>
+          </NavLink>
         </nav>
       </div>
     </header>
