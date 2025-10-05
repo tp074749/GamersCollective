@@ -1,14 +1,16 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "./NavBar";
 
 export default function AppLayout() {
-    return (
-        <>
-            <Navbar />
-            <main className="main" style ={{ padding: "1rem" }}>
-                <Outlet />
-            </main>
-            <footer className="footer">© 2025 GameStore. All rights reserved.</footer>
-        </>
-    );
+  return (
+    <div className="min-h-screen bg-[#0b0e12] text-white">
+      <Navbar />
+      <main className="py-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Outlet />
+        </div>
+      </main>
+      <footer className="footer">© 2024 GameStore. All rights reserved.</footer>
+    </div>
+  );
 }
