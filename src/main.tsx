@@ -8,6 +8,7 @@ import Categories from "./pages/Categories";
 import Recommendations from "./pages/Recommendations";
 import About from "./pages/About";
 import GameDetail from "./components/features/GameDetail";
+import Login from "./pages/Login";
 
 
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "categories", element: <Categories /> },
       { path: "recommendations", element: <Recommendations /> },
       { path: "about", element: <About /> },
+      { path: "login", element: <Login /> },
     ],
   },
 ]);
