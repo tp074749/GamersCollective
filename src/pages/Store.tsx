@@ -1,5 +1,6 @@
 import FeaturedCarousel from "../components/features/featuredshowcase/FeaturedCarousel";
 import { featuredData } from "../components/features/FeaturedData";
+import GameCarousel from "../components/feature/GameCarousel";
 
 
 export default function Store() { return (
@@ -8,5 +9,11 @@ export default function Store() { return (
         <FeaturedCarousel items={featuredData} index={0} onChange={() => {}} />
             
     </section>
+  <div className="p-6 rounded-xl bg-[#1F2833] text-[#F8F9FA]">
+   {/* Game Carousel Section */}
+      <div>
+        <GameCarousel />
+      </div>
+</div>
 );
 }
