@@ -3,8 +3,6 @@
 import type { MenuItem } from "./NavType";
 import type { Props } from "./NavType";
 
-
-
 export const storeItems: MenuItem[] = [
   { label: "Featured",  href: "/" },
   { label: "Wishlist",  href: "/wishlist" },
@@ -20,3 +18,4 @@ export const recommendationsItems: MenuItem[] = [
   { label: "All Games", href: "/recommendations" },
   { label: "Installed", href: "/installed" },
 ];
+

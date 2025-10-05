@@ -3,10 +3,6 @@ import DropDownMenu, { type MenuItem } from "./Dropdown/HoverDropDownMenu";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { storeItems, categoriesItems, recommendationsItems } from "./NavLists";
 
-
-
-
-
 // Tailwind styles (same as before)
 const ddMenu =
   "absolute left-0 mt-2 min-w-[180px] rounded-xl border border-white/10 bg-[#0b0f15]/95 shadow-lg backdrop-blur z-50 p-1";
