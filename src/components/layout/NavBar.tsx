@@ -23,8 +23,10 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 bg-[#1F2833]/95 backdrop-blur border-b border-white/10">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
         <div className="text-xl font-extrabold tracking-tight">
+          <NavLink to="/">
           <span className="text-[#6C63FF]">Gamers</span>
           <span className="text-[#F8F9FA]">Collective</span>
+          </NavLink>
         </div>
 
         <nav className="flex items-center gap-3">
@@ -47,13 +49,12 @@ export default function Navbar() {
             About
           </NavLink>
 
-          <button
+          <NavLink
+            to="/login"
             className={`${linkBase} ${linkNormal}`}
-            onClick={() => navigate("/login")}
-            type="button"
           >
             Log in
-          </button>
+          </NavLink>
         </nav>
       </div>
     </header>

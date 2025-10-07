@@ -1,4 +1,4 @@
-// src/features/featured/types.ts
+// src/features/Type.ts
 export interface FeaturedItem {
   id: string;
   title: string;
@@ -11,4 +11,5 @@ export interface FeaturedItem {
   genre?: string;
   developer?: string;
   releaseDate?: string;
+  price?: string; // ✅ Added for GameCarousel items
 }
