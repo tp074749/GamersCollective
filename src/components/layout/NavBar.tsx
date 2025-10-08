@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import DropDownMenu from "./Dropdown/HoverDropDownMenu";
 import { NAV } from "./NavLists";
 
@@ -13,7 +13,6 @@ const linkActive = "text-[#F8F9FA] bg-white/5";
 const titleCase = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 export default function Navbar() {
-  const navigate = useNavigate();
   const { pathname } = useLocation();
 
   const isGroupActive = (items: MenuItem[]) =>
