@@ -5,6 +5,8 @@ import { useGameScreenshots } from "../components/features/gamespage/useGameScre
 import { ScreenshotGallery } from "../components/features/gamespage/ScreenshotGallery";
 import { DescriptionCard } from "../components/features/gamespage/DescriptionCard";
 import WishlistButton from "../components/Storage/WishListButton"; 
+import AddToCartButton from "../components/cart/AddToCartButton";
+
 
 
 export default function GameDetailPage() {
@@ -29,7 +31,7 @@ export default function GameDetailPage() {
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_430px] 2xl:grid-cols-[minmax(0,1fr)_460px]">
         <ScreenshotGallery images={images} title={item.title} />
-        <DescriptionCard item={item} thumbSrc={item.thumbUrl ?? images[0]} />
+        <DescriptionCard item={item} thumbSrc={item.thumbUrl} />
       </div>
 
       <div className="pt-5 flex items-center gap-3">
@@ -46,7 +48,8 @@ export default function GameDetailPage() {
           imageUrl={item.imageUrl}
           href={item.ctaHref}
         />
-        
+        <AddToCartButton id={item.id} />
+
       </div>
     </section>
   );

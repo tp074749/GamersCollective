@@ -1,4 +1,4 @@
-
+// src/components/features/featuredshowcase/featuredsidebar/FeaturedListItem.tsx
 import type { FeaturedItem } from "../../Type";
 
 function FeaturedListItem({

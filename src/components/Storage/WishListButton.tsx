@@ -1,7 +1,7 @@
 //src/components/Storage/WishListButton.tsx
 import { useState } from "react";
 import Button from "../ui/Button"; // adjust path if different
-import { useWishlist } from "./WishListLS";
+import { useWishlist } from "./WishlistContext";
 
 export default function WishlistButton({
   id, title, imageUrl, href, className = "",

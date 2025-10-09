@@ -49,11 +49,20 @@ export default function Navbar() {
           </NavLink>
 
           <NavLink
+            to="/cart"
+            className={`${linkBase} ${linkNormal}`}
+          >
+            Cart
+          </NavLink>
+
+          <NavLink
             to="/login"
             className={`${linkBase} ${linkNormal}`}
           >
             Log in
           </NavLink>
+
+          
         </nav>
       </div>
     </header>
