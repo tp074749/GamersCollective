@@ -7,7 +7,7 @@ import Store from "./pages/Store";
 import Categories from "./pages/Categories";
 import Recommendations from "./pages/Recommendations";
 import About from "./pages/About";
-import GameDetail from "./components/features/GameDetail";
+import GameDetail from "./pages/GameDetail";
 import Login from "./pages/Login";
 
 
