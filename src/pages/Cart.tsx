@@ -1,20 +1,17 @@
 // src/pages/CartPage.tsx
 
-import React from "react";
 import { useState } from "react";
 import { featuredData, gameCarouselData } from "../components/features/FeaturedData";
 import { useCart, useCartItems, useCartSubtotal } from "../components/Storage/CartContext";
 import CartItemRow from "../components/features/cart/CartItemRow";           // ✅ correct casing
 import { formatMYR } from "../components/features/cart/CurrencyFormat(MYR)";
 import ComfirmWindow from "../components/ui/ComfirmWindow";     // ✅ bring back modal
-import PlusMinusQuantity from "../components/ui/PlusMinusQuant";
 
 
 type ModalMode = "clear" | "checkout" | null;
 
 export default function CartPage() {
   const { remove, clear } = useCart();
-  const [quantity, setQuantity] = React.useState(1);
 
   // Resolve ids → FeaturedItem (prefer featuredData over carousel on collisions)
   const items    = useCartItems([gameCarouselData, featuredData]);
@@ -89,12 +86,6 @@ export default function CartPage() {
         </div>
       )}
 
-      <PlusMinusQuantity
-        quantity={quantity}
-        onQuantityChange={setQuantity}
-        min={0}
-        max={10}
-      />
 
 
       <ComfirmWindow
