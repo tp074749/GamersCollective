@@ -1,6 +1,6 @@
 // src/cart/AddToCartButton.tsx
-import Button from "../ui/Button";
-import { useCart } from "./CartContext";
+import Button from "../../ui/Button";
+import { useCart } from "../../Storage/CartContext";
 
 export default function AddToCartButton({ id, className = "" }: { id: string; className?: string }) {
   const { add, has } = useCart();

@@ -2,8 +2,8 @@
 import type { FeaturedItem } from "../components/features/Type";
 import { useWishlist } from "../components/Storage/WishlistContext";
 import { featuredData, gameCarouselData } from "../components/features/FeaturedData";
-import WishCard from "../components/Storage/WishCard";
-import AddToCartButton from "../components/cart/AddToCartButton";
+import WishItemCard from "../components/features/wishlist/WishItemCard";
+import AddToCartButton from "../components/features/cart/AddToCartButton";
 
 
 export default function WishlistPage() {
@@ -35,7 +35,7 @@ export default function WishlistPage() {
       <ul className="space-y-4">
         {rows.map((game) => (
           <li key={game.id} className="relative">
-            <WishCard game={game} />
+            <WishItemCard game={game} />
             <button
               onClick={() => remove(game.id)}
               className="absolute top-2 right-2 text-xs px-2 py-1 rounded bg-white/10 hover:bg-white/20"

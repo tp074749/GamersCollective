@@ -1,18 +1,18 @@
-import React from "react";
+// src/pages/GameDetail.tsx
 import { useParams } from "react-router-dom";
 import { featuredData } from "../components/features/FeaturedData";
-import { useGameScreenshots } from "../components/features/gamespage/useGameScreenshots";
-import { ScreenshotGallery } from "../components/features/gamespage/ScreenshotGallery";
-import { DescriptionCard } from "../components/features/gamespage/DescriptionCard";
-import WishlistButton from "../components/Storage/WishListButton"; 
-import AddToCartButton from "../components/cart/AddToCartButton";
+import { ImageLibMapping } from "../components/features/gamespage/ImageLibMapping";
+import { GamesGallery } from "../components/features/gamespage/GamesGallery";
+import { DescriptionCard } from "../components/features/gamespage/GamesDescriptionCard";
+import WishlistButton from "../components/features/wishlist/WishListButton"; 
+import AddToCartButton from "../components/features/cart/AddToCartButton";
 
 
 
 export default function GameDetailPage() {
   const { id } = useParams<{ id: string }>();
   const item = featuredData.find((g) => g.id === id);
-  const images = useGameScreenshots(id);
+  const images = ImageLibMapping(id);
 
   if (!item) return <div className="p-6 text-white">Game not found.</div>;
   if (images.length === 0)
@@ -30,7 +30,7 @@ export default function GameDetailPage() {
 
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_430px] 2xl:grid-cols-[minmax(0,1fr)_460px]">
-        <ScreenshotGallery images={images} title={item.title} />
+        <GamesGallery images={images} title={item.title} />
         <DescriptionCard item={item} thumbSrc={item.thumbUrl} />
       </div>
 

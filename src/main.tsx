@@ -12,7 +12,7 @@ import GameDetail from "./pages/GameDetail";
 import Login from "./pages/Login";
 import { WishlistProvider } from "./components/Storage/WishlistContext.tsx";
 import Wishlist from "./pages/Wishlist.tsx";
-import { CartProvider } from "./components/cart/CartContext";
+import { CartProvider } from "./components/Storage/CartContext.tsx";
 import Cart from "./pages/Cart.tsx";
 
 

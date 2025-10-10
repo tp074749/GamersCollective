@@ -1,9 +1,9 @@
 // src/cart/CartContext.tsx
 import React, { createContext, useContext, useMemo } from "react";
-import { useLocalStorage } from "../Storage/localStorage";
+import { useLocalStorage } from "./localStorage";
 import type { FeaturedItem } from "../features/Type";
 
-type CartAPI = {
+type CartItemStore = {
   ids: string[];                 // one id per game
   add: (id: string) => void;     // no duplicates
   remove: (id: string) => void;
@@ -12,13 +12,13 @@ type CartAPI = {
   count: number;
 };
 
-const KEY = "cart:v1";
-const Ctx = createContext<CartAPI | null>(null);
+const Cart_Storage_KEY = "cart:v1";
+const CartCtx = createContext<CartItemStore | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [ids, setIds] = useLocalStorage<string[]>(KEY, []);
+  const [ids, setIds] = useLocalStorage<string[]>(Cart_Storage_KEY, []);
 
-  const api = useMemo<CartAPI>(() => {
+  const CartStore = useMemo<CartItemStore>(() => {
     const add    = (id: string) => setIds(prev => (prev.includes(id) ? prev : [...prev, id]));
     const remove = (id: string) => setIds(prev => prev.filter(x => x !== id));
     const clear  = () => setIds([]);
@@ -26,11 +26,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return { ids, add, remove, clear, has, count: ids.length };
   }, [ids, setIds]);
 
-  return <Ctx.Provider value={api}>{children}</Ctx.Provider>;
+  return <CartCtx.Provider value={CartStore}>{children}</CartCtx.Provider>;
 }
 
 export function useCart() {
-  const ctx = useContext(Ctx);
+  const ctx = useContext(CartCtx);
   if (!ctx) throw new Error("useCart must be used within <CartProvider>");
   return ctx;
 }

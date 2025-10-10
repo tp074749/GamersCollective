@@ -3,7 +3,7 @@ import { useLocalStorage } from "./localStorage"; // no .ts extension
 import type { FeaturedItem } from "../features/Type";
 
 /** Context API */
-type WishlistAPI = {
+type WishlistStore  = {
   ids: string[];
   add: (id: string) => void;
   remove: (id: string) => void;
@@ -12,14 +12,14 @@ type WishlistAPI = {
   count: number;
 };
 
-const STORAGE_KEY = "wishlist:v1";
-const WishlistCtx = createContext<WishlistAPI | null>(null);
+const WISHLIST_STORAGE_KEY  = "wishlist:v1";
+const WishlistCtx = createContext<WishlistStore | null>(null);
 
 export function WishlistProvider({ children }: { children: React.ReactNode }) {
   // store only canonical ids
-  const [ids, setIds] = useLocalStorage<string[]>(STORAGE_KEY, []);
+  const [ids, setIds] = useLocalStorage<string[]>(WISHLIST_STORAGE_KEY , []);
 
-  const api = useMemo<WishlistAPI>(() => {
+  const WishStore  = useMemo<WishlistStore>(() => {
     const add = (id: string) => setIds(prev => (prev.includes(id) ? prev : [...prev, id]));
     const remove = (id: string) => setIds(prev => prev.filter(x => x !== id));
     const clear = () => setIds([]);
@@ -27,7 +27,7 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
     return { ids, add, remove, clear, has, count: ids.length };
   }, [ids, setIds]);
 
-  return <WishlistCtx.Provider value={api}>{children}</WishlistCtx.Provider>;
+  return <WishlistCtx.Provider value={WishStore }>{children}</WishlistCtx.Provider>;
 }
 
 export function useWishlist() {

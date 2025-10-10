@@ -1,6 +1,6 @@
 // src/components/Storage/WishCard.tsx
-import type { FeaturedItem } from "../features/Type";
-import GameCardRow from "../ui/GameCardRow";
+import type { FeaturedItem } from "../Type";
+import GameCardRow from "../../ui/GameCardRow";
 
 
 function formatDate(iso?: string) {
@@ -9,7 +9,7 @@ function formatDate(iso?: string) {
   return d.toLocaleDateString(undefined, { day: "2-digit", month: "short", year: "numeric" });
 }
 
-export default function WishCard({
+export default function WishItemCard({
   game,
   className,
 }: {
@@ -22,7 +22,7 @@ export default function WishCard({
     <GameCardRow
       game={game}
       showPrice
-      rightAlign="center"               // <— middle-right
+      rightAlign="center"               
       className={className}
       footerLeft={
         game.releaseDate ? <span>{formatDate(game.releaseDate)}</span> : null

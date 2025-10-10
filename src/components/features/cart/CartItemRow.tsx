@@ -1,9 +1,8 @@
 // src/cart/components/CartLine.tsx
-import * as React from "react";
-import type { FeaturedItem } from "../../components/features/Type";
-import GameCardRow from "../ui/GameCardRow";
+import type { FeaturedItem } from "../Type";
+import GameCardRow from "../../ui/GameCardRow";
 
-export default function CartLine({
+export default function CartItemRow({
   game,
   onRemove,
   className,

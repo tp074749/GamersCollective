@@ -1,4 +1,4 @@
-export default function ConfirmModal({
+export default function ComfirmWindow({
   open, title, message, onCancel, onConfirm,
 }: {
   open: boolean;
