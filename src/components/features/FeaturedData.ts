@@ -12,6 +12,10 @@ import FF7Img from "../../assets/ff7rebirth.jpg";
 import LiesofPImg from "../../assets/Lies-of-P_2025.jpg";
 import ArmorCore6Img from "../../assets/Armored_Core_VI_Fires_of_Rubicon.jpg";
 
+export const wishlist: FeaturedItem[] = [
+  
+];
+
 export const featuredData: FeaturedItem[] = [
   {
     id: "fortnite",
@@ -31,7 +35,7 @@ export const featuredData: FeaturedItem[] = [
     title: "Battlefield6",
     blurb: "Join all-out warfare across land, sea, and air.",
     imageUrl: "src/assets/battlefield6.jpg",
-    thumbUrl: "src/assets/featured/bf6-thumb.jpg",
+    thumbUrl: "src/assets/battlefield6.jpg",
     ctaLabel: "Buy Now",
     ctaHref: "/battlefield6",
     genre: "FPS",

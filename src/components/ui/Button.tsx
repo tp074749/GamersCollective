@@ -1,3 +1,4 @@
+//Button.tsx
 import React from "react";
 
 type Variant = "primary" | "secondary" | "ghost";
