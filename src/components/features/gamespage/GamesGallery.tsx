@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { NavBtn } from "./LRNavBtn";
+import { LRBtn } from "../../ui/LRButton";
 import { Lightbox } from "./Lightbox";
 
-export function ScreenshotGallery({
+export function GamesGallery({
   images,
   title,
 }: {
@@ -27,8 +27,8 @@ export function ScreenshotGallery({
             className="h-full w-full object-cover cursor-zoom-in"
             onClick={() => setZoomOpen(true)}
         />
-        <NavBtn onClick={prev} label="Previous screenshot" side="left" />
-        <NavBtn onClick={next} label="Next screenshot" side="right" />
+        <LRBtn onClick={prev} label="Previous screenshot" side="left" />
+        <LRBtn onClick={next} label="Next screenshot" side="right" />
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs bg-black/50 rounded px-2 py-1">
             {active + 1} / {images.length}
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavBtn } from "./LRNavBtn";
+import { LRBtn } from "../../ui/LRButton";
 
 export function Lightbox({
   open,
@@ -48,8 +48,8 @@ export function Lightbox({
           Close ✕
         </button>
       </div>
-      <NavBtn onClick={(e: React.MouseEvent) => { e.stopPropagation(); onPrev(); }} label="Previous" side="left" />
-      <NavBtn onClick={(e: React.MouseEvent) => { e.stopPropagation(); onNext(); }} label="Next" side="right" />
+      <LRBtn onClick={(e: React.MouseEvent) => { e.stopPropagation(); onPrev(); }} label="Previous" side="left" />
+      <LRBtn onClick={(e: React.MouseEvent) => { e.stopPropagation(); onNext(); }} label="Next" side="right" />
     </div>
   );
 }

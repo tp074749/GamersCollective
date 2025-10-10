@@ -1,5 +1,5 @@
 // Finds all images living in a folder that matches the game id
-export function useGameScreenshots(gameId?: string) {
+export function ImageLibMapping(gameId?: string) {
   const all = import.meta.glob<string>(
     "/src/assets/**/*.{png,jpg,jpeg,webp,avif}",
     { eager: true, as: "url" }

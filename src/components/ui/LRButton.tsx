@@ -1,6 +1,6 @@
 import React from "react";
 
-export function NavBtn({
+export function LRBtn({
   onClick,
   label,
   side,
@@ -25,4 +25,4 @@ export function NavBtn({
     </button>
   );
 }
-export default NavBtn;
+export default LRBtn;

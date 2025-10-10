@@ -1,4 +1,4 @@
-import React from "react";
+// DescriptionCard.tsx
 import type { FeaturedItem } from "../Type"; // adjust path if needed
 
 export function DescriptionCard({

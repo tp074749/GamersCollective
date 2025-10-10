@@ -1,4 +1,4 @@
-// FeaturedData.ts
+// src/components/features/FeaturedData.ts
 import type { FeaturedItem } from "./Type";
 import eldenRingImg from "../../assets/elden_ring.jpg";
 import peakImg from "../../assets/peak.webp";
@@ -24,23 +24,25 @@ export const featuredData: FeaturedItem[] = [
     imageUrl: "src/assets/fortnite/fortnite.jpg",
     thumbUrl: "src/assets/fortnite/fortnite.jpg",
     ctaLabel: "Play For Free",
-    ctaHref: "/fortnite",
+    ctaHref: "/game/fortnite",
     tag: "OUT NOW",
     genre: "Battle Royale",
     developer: "Epic Games",
     releaseDate: "July 21, 2017",
+    price: "Free",
   },
   {
     id: "battlefield6",
     title: "Battlefield6",
     blurb: "Join all-out warfare across land, sea, and air.",
-    imageUrl: "src/assets/battlefield6.jpg",
-    thumbUrl: "src/assets/battlefield6.jpg",
+    imageUrl: "src/assets/battlefield6/battlefield6.jpg",
+    thumbUrl: "src/assets/battlefield6/battlefield6.jpg",
     ctaLabel: "Buy Now",
-    ctaHref: "/battlefield6",
+    ctaHref: "/game/battlefield6",
     genre: "FPS",
     developer: "DICE",
     releaseDate: "November 19, 2021",
+    price: "MYR 249.00",
   },
 ];
 

@@ -1,22 +1,23 @@
-//src/components/Storage/WishListButton.tsx
+// src/components/Storage/WishListButton.tsx
 import { useState } from "react";
-import Button from "../ui/Button"; // adjust path if different
-import { useWishlist } from "./WishListLS";
+import Button from "../../ui/Button";
+import { useWishlist } from "../../Storage/WishlistContext";
 
 export default function WishlistButton({
-  id, title, imageUrl, href, className = "",
+  id,
+  className = "",
 }: {
-  id: string; title: string; imageUrl?: string; href?: string; className?: string;
+  id: string;
+  className?: string;
 }) {
-  const { has, add, remove } = useWishlist();
+  const { has, add, remove } = useWishlist();   // ids-only API
   const [busy, setBusy] = useState(false);
   const inList = has(id);
 
   const toggle = async () => {
     setBusy(true);
     try {
-      if (inList) remove(id);
-      else add({ id, title, imageUrl, href });
+      inList ? remove(id) : add(id);            // ✅ add/remove by id
     } finally {
       setBusy(false);
     }
