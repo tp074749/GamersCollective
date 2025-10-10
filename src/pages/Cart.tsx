@@ -7,8 +7,7 @@ import { useCart, useCartItems, useCartSubtotal } from "../components/Storage/Ca
 import CartItemRow from "../components/features/cart/CartItemRow";           // ✅ correct casing
 import { formatMYR } from "../components/features/cart/CurrencyFormat(MYR)";
 import ComfirmWindow from "../components/ui/ComfirmWindow";     // ✅ bring back modal
-import PlusMinusQuantity from "../components/ui/PlusMinusQuant";
-
+import PlusMinusQuantity from "../components/ui/PlusMinusQuantity";
 
 type ModalMode = "clear" | "checkout" | null;
 
