@@ -10,7 +10,7 @@ export default function AppLayout() {
           <Outlet />
         </div>
       </main>
-      <footer className="footer">© 2024 GameStore. All rights reserved.</footer>
+      <footer className="flex justify-center">© 2025 GameStore. All rights reserved.</footer>
     </div>
   );
 }

@@ -1,23 +1,36 @@
-//GameCarousel.tsx
-import React, { useState, useEffect } from "react";
-import { gameCarouselData } from "../features/FeaturedData"; // ✅ Import from your shared data file
+import React, { useState, useEffect, useMemo } from "react";
+import { listGames, toImageUrl, type GameListItem } from "../../api";
 
 const GameCarousel: React.FC = () => {
   const itemsPerView = 5;
-  const GAP_REM = 1;
-  const maxIndex = Math.max(0, gameCarouselData.length - itemsPerView);
+ 
   const [index, setIndex] = useState(0);
+  const [games, setGames] = useState<GameListItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    listGames().then(setGames).finally(() => setLoading(false));
+  }, []);
+
+  const maxIndex = useMemo(() => Math.max(0, games.length - itemsPerView), [games.length]);
+
 
   const nextSlide = () => setIndex((i) => Math.min(i + 1, maxIndex));
   const prevSlide = () => setIndex((i) => Math.max(i - 1, 0));
 
+
   // ✅ Auto-scroll every 4s
   useEffect(() => {
+    if (!games.length) return;
     const id = setInterval(() => {
       setIndex((i) => (i >= maxIndex ? 0 : i + 1));
     }, 4000);
     return () => clearInterval(id);
-  }, [maxIndex]);
+  }, [games.length, maxIndex]);
+
+  if (loading) { return <div className="text-gray-300">Loading...</div>; }
+
+  if (!games.length) { return <div className="text-gray-400">No games found.</div>; }
 
   return (
     <div className="w-full">
@@ -48,14 +61,14 @@ const GameCarousel: React.FC = () => {
             transform: `translateX(-${(index * 100) / itemsPerView}%)`,
           }}
         >
-          {gameCarouselData.map((g) => (
+          {games.map((g) => {
+            const img = toImageUrl(g.thumb_key ?? g.cover_key);
+            return (
             <div
-              key={g.id}
-              className="shrink-0 basis-[calc((100%-1rem*4)/5)] group"
-            >
+              key={g.game_id} className="shrink-0 basis-[calc((100%-1rem*4)/5)] group">
               <div className="relative rounded-lg overflow-hidden">
                 <img
-                  src={g.imageUrl}
+                  src={img}
                   alt={g.title}
                   className="w-full h-120 object-cover"
                 />
@@ -65,9 +78,8 @@ const GameCarousel: React.FC = () => {
                     {g.title}
                   </h3>
                   <p className="text-gray-300 text-sm mb-3 line-clamp-5">
-                    {g.blurb}
+                    {g.available_keys > 0 ? `${g.available_keys} keys in stock` : "Out of stock"}
                   </p>
-                  <p className="text-[#00bfff] font-semibold">{g.price}</p>
                 </div>
               </div>
               {/* Title and Price below */}
@@ -76,7 +88,8 @@ const GameCarousel: React.FC = () => {
                 <p className="text-gray-400">{g.price}</p>
               </div>
             </div>
-          ))}
+          ); 
+          })}
         </div>
       </div>
     </div>
