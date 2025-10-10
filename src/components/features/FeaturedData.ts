@@ -1,4 +1,4 @@
-// FeaturedData.ts
+// src/components/features/FeaturedData.ts
 import type { FeaturedItem } from "./Type";
 import eldenRingImg from "../../assets/elden_ring.jpg";
 import peakImg from "../../assets/peak.webp";

@@ -1,25 +1,19 @@
-import Button from "../ui/Button"; // your Button
+// src/cart/AddToCartButton.tsx
+import Button from "../ui/Button";
 import { useCart } from "./CartContext";
 
-export default function AddToCartButton({
-  id,
-  className = "",
-  qty = 1,
-}: {
-  id: string;
-  qty?: number;
-  className?: string;
-}) {
-  const { add } = useCart();
+export default function AddToCartButton({ id, className = "" }: { id: string; className?: string }) {
+  const { add, has } = useCart();
+  const inCart = has(id);
   return (
     <Button
       variant="secondary"
       className={className}
-      onClick={() => add(id, qty)}
-      aria-label="Add to cart"
-      title="Add to cart"
+      disabled={inCart}
+      onClick={() => add(id)}
+      title={inCart ? "Already in cart" : "Add to cart"}
     >
-      🛒 Add to cart
+      {inCart ? "✓ In cart" : "🛒 Add to cart"}
     </Button>
   );
 }

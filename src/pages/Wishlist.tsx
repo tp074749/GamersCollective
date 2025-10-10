@@ -1,15 +1,22 @@
 // src/pages/WishlistPage.tsx
+import type { FeaturedItem } from "../components/features/Type";
 import { useWishlist } from "../components/Storage/WishlistContext";
-import { featuredData } from "../components/features/FeaturedData";
+import { featuredData, gameCarouselData } from "../components/features/FeaturedData";
 import WishCard from "../components/Storage/WishCard";
+import AddToCartButton from "../components/cart/AddToCartButton";
+
 
 export default function WishlistPage() {
-  const { items: wish, remove, clear } = useWishlist();
+  const { ids, remove, clear } = useWishlist();
 
-  // join: for each saved id, find the canonical catalog item
-  const rows = wish
-    .map(w => featuredData.find(g => g.id === w.id))
-    .filter(Boolean); // drop any ids that no longer exist
+  // Build a lookup that prefers featuredData on collisions
+  const byId = new Map<string, FeaturedItem>();
+  for (const g of gameCarouselData) byId.set(g.id, g); // lower priority first
+  for (const g of featuredData) byId.set(g.id, g);     // featured overrides
+
+  const rows = ids
+    .map((id) => byId.get(id))
+    .filter(Boolean) as FeaturedItem[];
 
   return (
     <section className="p-6 text-white max-w-5xl mx-auto">
@@ -26,15 +33,19 @@ export default function WishlistPage() {
       </div>
 
       <ul className="space-y-4">
-        {rows.map(game => (
-          <li key={game!.id} className="relative">
-            <WishCard game={game!} />
+        {rows.map((game) => (
+          <li key={game.id} className="relative">
+            <WishCard game={game} />
             <button
-              onClick={() => remove(game!.id)}
+              onClick={() => remove(game.id)}
               className="absolute top-2 right-2 text-xs px-2 py-1 rounded bg-white/10 hover:bg-white/20"
             >
               Remove
             </button>
+            <AddToCartButton
+              id={game.id}
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10"
+            />
           </li>
         ))}
         {rows.length === 0 && (

@@ -42,12 +42,8 @@ export default function GameDetailPage() {
           {item.ctaLabel}
           </a>
 
-        <WishlistButton
-          id={item.id}
-          title={item.title}
-          imageUrl={item.imageUrl}
-          href={item.ctaHref}
-        />
+        <WishlistButton id={item.id} />
+
         <AddToCartButton id={item.id} />
 
       </div>
